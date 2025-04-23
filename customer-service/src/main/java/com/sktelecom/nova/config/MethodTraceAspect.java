@@ -17,7 +17,9 @@ public class MethodTraceAspect {
     // ThreadLocal을 이용하여 호출 깊이를 추적
     private static final ThreadLocal<Integer> depth = ThreadLocal.withInitial(() -> 0);
 
-    @Around("execution(* com.sktelecom.nova.modular.monolith..*(..))") // 패키지 경로 수정 필요
+    @Around(
+            "execution(* com.sktelecom.nova..*(..))"
+    ) // 패키지 경로 수정 필요
     public Object traceMethodExecution(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
         String threadName = Thread.currentThread().getName();

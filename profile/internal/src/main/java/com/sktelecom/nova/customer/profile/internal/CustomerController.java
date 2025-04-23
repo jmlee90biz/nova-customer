@@ -1,10 +1,12 @@
-package com.sktelecom.nova.modular.monolith.customer.profile.internal;
+package com.sktelecom.nova.customer.profile.internal;
 
-import com.sktelecom.nova.modular.monolith.customer.profile.api.CustomerRegistrationRequest;
-import com.sktelecom.nova.modular.monolith.customer.profile.api.CustomerDto;
-import com.sktelecom.nova.modular.monolith.customer.profile.api.CustomerProfileService;
+import com.sktelecom.nova.customer.profile.api.CustomerDto;
+import com.sktelecom.nova.customer.profile.api.CustomerProfileService;
+import com.sktelecom.nova.customer.profile.api.CustomerRegistrationRequest;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.*;
+import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

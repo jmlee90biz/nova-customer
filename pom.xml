@@ -12,6 +12,7 @@
         <module>profile</module>
         <module>subscription</module>
         <module>customer-service</module>
+        <module>profile.hx</module>
     </modules>
 
     <properties>

@@ -1,7 +1,4 @@
-package com.sktelecom.nova.modular.monolith.customer.subscription.event;
-
-import com.sktelecom.nova.modular.monolith.customer.subscription.api.SubscriptionCustomerProductPricingPlanDto;
-import com.sktelecom.nova.modular.monolith.customer.subscription.api.SubscriptionStatus;
+package com.sktelecom.nova.customer.subscription.event;
 
 import java.math.BigDecimal;
 import java.util.UUID;

@@ -1,4 +1,4 @@
-package com.sktelecom.nova.subscription.internal;
+package com.sktelecom.nova.customer.subscription.internal;
 
 import com.sktelecom.nova.customer.subscription.api.SubscriptionDto;
 

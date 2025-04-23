@@ -1,10 +1,7 @@
-package com.sktelecom.nova.modular.monolith.customer.subscription.api;
+package com.sktelecom.nova.customer.subscription.api;
 
-import com.sktelecom.nova.modular.monolith.customer.profile.api.CustomerDto;
-
-import com.sktelecom.nova.modular.monolith.product.catalog.api.ProductDto;
-import com.sktelecom.nova.modular.monolith.product.pricing.api.PricingPlanDto;
-import com.sktelecom.nova.modular.monolith.product.pricing.api.ProductPricingPlanDto;
+import com.sktelecom.nova.customer.profile.api.CustomerDto;
+import com.sktelecom.nova.product.pricing.api.ProductPricingPlanDto;
 
 import java.math.BigDecimal;
 import java.util.UUID;

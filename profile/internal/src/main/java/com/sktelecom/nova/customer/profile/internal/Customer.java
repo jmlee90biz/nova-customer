@@ -1,6 +1,6 @@
-package com.sktelecom.nova.modular.monolith.customer.profile.internal;
+package com.sktelecom.nova.customer.profile.internal;
 
-import com.sktelecom.nova.modular.monolith.customer.profile.event.CustomerRegisteredEvent;
+import com.sktelecom.nova.customer.profile.event.CustomerRegisteredEvent;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;

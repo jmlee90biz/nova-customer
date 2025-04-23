@@ -1,4 +1,4 @@
-@NamedInterface("event")
-package com.sktelecom.nova.modular.monolith.customer.subscription.event;
+@ApplicationModule(displayName="customer-subscription-event")
+package com.sktelecom.nova.customer.subscription.event;
 
-import org.springframework.modulith.NamedInterface;
+import org.springframework.modulith.ApplicationModule;

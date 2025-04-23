@@ -1,16 +1,10 @@
-package com.sktelecom.nova.modular.monolith.customer.profile.internal;
+package com.sktelecom.nova.customer.profile.internal;
 
-import com.sktelecom.nova.modular.monolith.common.notification.event.NotificationRequestedEvent;
-import com.sktelecom.nova.modular.monolith.customer.profile.event.CustomerRegisteredEvent;
-import com.sktelecom.nova.modular.monolith.shared.kernel.EventPublisher;
+//import com.sktelecom.nova.modular.monolith.common.notification.event.NotificationRequestedEvent;
+import com.sktelecom.nova.customer.profile.event.CustomerRegisteredEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.modulith.events.ApplicationModuleListener;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.event.TransactionalEventListener;
 
 @Component
 @RequiredArgsConstructor
@@ -23,13 +17,13 @@ public class CustomerEventListener {
 //    //@EventListener
 //    @Transactional(propagation = Propagation.REQUIRES_NEW)
 //    @TransactionalEventListener
-    void onCustomerRegisteredEvent(final CustomerRegisteredEvent customerRegisteredEvent) {
-        eventPublisher.publishEvent(
-                NotificationRequestedEvent.create(
-                        customerRegisteredEvent.email(),
-                        "Customer Registered",
-                        "Welcome!"
-                )
-        );
-    }
+//    void onCustomerRegisteredEvent(final CustomerRegisteredEvent customerRegisteredEvent) {
+//        eventPublisher.publishEvent(
+//                NotificationRequestedEvent.create(
+//                        customerRegisteredEvent.email(),
+//                        "Customer Registered",
+//                        "Welcome!"
+//                )
+//        );
+//    }
 }

@@ -1,8 +1,10 @@
-package com.sktelecom.nova.customer;
+package com.sktelecom.nova;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
+@EnableAspectJAutoProxy
 @SpringBootApplication
 public class NovaCustomerService {
     public static void main(String[] args) {

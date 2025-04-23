@@ -1,4 +1,4 @@
-package com.sktelecom.nova.subscription.internal;
+package com.sktelecom.nova.customer.subscription.internal;
 
 import com.sktelecom.nova.customer.profile.api.CustomerDto;
 import com.sktelecom.nova.customer.profile.api.CustomerProfileService;
@@ -22,10 +22,23 @@ import java.util.UUID;
 @RequiredArgsConstructor
 class SubscriptionServiceImpl implements SubscriptionService {
     private final SubscriptionRepository subscriptionRepository;
-    private final ApplicationEventPublisher eventPublisher;
 
     private final CustomerProfileService customerProfileService;
     private final ProductPricingService productPricingService;
+
+    private final ApplicationEventPublisher eventPublisher;
+
+
+    @Override
+    public SubscriptionCustomerProductPricingPlanDto findSubscriptionCustomerProductPricingPlanById(UUID subscriptionId) {
+        SubscriptionDto subscriptionDto = getSubscriptionById(subscriptionId);
+        CustomerDto customer = customerProfileService.getCustomerById(subscriptionDto.customerId());
+        ProductPricingPlanDto productPricingPlanDto = productPricingService.findProductPricingPlanById(subscriptionDto.pricingPlanId());
+
+        return SubscriptionCustomerProductPricingPlanDto.join(productPricingPlanDto,
+                SubscriptionCustomerProductPricingPlanDto.join(customer, subscriptionDto));
+    }
+
 
     @Override
     @Transactional
@@ -39,6 +52,7 @@ class SubscriptionServiceImpl implements SubscriptionService {
 
         eventPublisher.publishEvent(activatedSubscription.createSubscriptionActivatedEvent(subscriptionCustomerProductPricingPlanDto));
 
+        System.out.println("SUBSCRIPTION ACTIVED: " + activatedSubscription);
         return SubscriptionMapper.toSubscriptionDto(activatedSubscription);
     }
 
@@ -73,14 +87,5 @@ class SubscriptionServiceImpl implements SubscriptionService {
         );
     }
 
-    @Override
-    public SubscriptionCustomerProductPricingPlanDto findSubscriptionCustomerProductPricingPlanById(UUID subscriptionId) {
-        SubscriptionDto subscriptionDto = getSubscriptionById(subscriptionId);
-        CustomerDto customer = customerProfileService.getCustomerById(subscriptionDto.customerId());
-        ProductPricingPlanDto productPricingPlanDto = productPricingService.findProductPricingPlanById(subscriptionDto.pricingPlanId());
-
-        return SubscriptionCustomerProductPricingPlanDto.join(productPricingPlanDto,
-                SubscriptionCustomerProductPricingPlanDto.join(customer, subscriptionDto));
-    }
 
 }

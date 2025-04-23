@@ -1,4 +1,10 @@
-@NamedInterface("api")
-package com.sktelecom.nova.modular.monolith.customer.subscription.api;
+@ApplicationModule(
+        displayName="customer-subscription-api",
+        allowedDependencies = {
+                "customer.profile.api",
+                "product.pricing.api"
+        }
+)
+package com.sktelecom.nova.customer.subscription.api;
 
-import org.springframework.modulith.NamedInterface;
+import org.springframework.modulith.ApplicationModule;

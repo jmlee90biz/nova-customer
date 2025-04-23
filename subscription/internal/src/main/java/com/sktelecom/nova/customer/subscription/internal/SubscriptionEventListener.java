@@ -1,4 +1,4 @@
-package com.sktelecom.nova.subscription.internal;
+package com.sktelecom.nova.customer.subscription.internal;
 
 //import com.sktelecom.nova.common.notification.event.NotificationRequestedEvent;
 import com.sktelecom.nova.customer.subscription.api.SubscriptionCustomerProductPricingPlanDto;
@@ -6,6 +6,7 @@ import com.sktelecom.nova.customer.subscription.api.SubscriptionService;
 import com.sktelecom.nova.customer.subscription.event.SubscriptionActivatedEvent;
 
 import lombok.RequiredArgsConstructor;
+
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;

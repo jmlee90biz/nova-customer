@@ -1,13 +1,12 @@
-package com.sktelecom.nova.modular.monolith.customer.profile.internal;
+package com.sktelecom.nova.customer.profile.internal;
 
-import com.sktelecom.nova.modular.monolith.billing.invoice.api.InvoiceService;
-import com.sktelecom.nova.modular.monolith.customer.profile.api.CustomerRegistrationRequest;
-import com.sktelecom.nova.modular.monolith.customer.profile.api.CustomerDto;
-import com.sktelecom.nova.modular.monolith.customer.profile.api.CustomerProfileService;
-
-import com.sktelecom.nova.modular.monolith.shared.kernel.EventPublisher;
+import com.sktelecom.nova.customer.profile.api.CustomerDto;
+import com.sktelecom.nova.customer.profile.api.CustomerProfileService;
+import com.sktelecom.nova.customer.profile.api.CustomerRegistrationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,9 +17,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 class CustomerProfileServiceImpl implements CustomerProfileService {
     private final CustomerRepository customerRepository;
-    //private final EventPublisher eventPublisher;
     private final ApplicationEventPublisher eventPublisher;
-
 
     @Override
     @Transactional
@@ -30,11 +27,7 @@ class CustomerProfileServiceImpl implements CustomerProfileService {
         );
 
         eventPublisher.publishEvent(registeredCustomer.createCustomerRegisteredEvent());
-    //    eventPublisher.publish(registeredCustomer.createCustomerRegisteredEvent());
 
-//        if(true) {
-//            throw new RuntimeException("TRANSACTION TEST");
-//        }
         return CustomerMapper.toCustomerDto(registeredCustomer);
     }
 
@@ -43,6 +36,7 @@ class CustomerProfileServiceImpl implements CustomerProfileService {
         return customerRepository.findById(customerId).map(CustomerMapper::toCustomerDto)
                 .orElseThrow(()->new RuntimeException("Customer not found"));
     }
+
 
     @Override
     public List<CustomerDto> findAllCustomers() {

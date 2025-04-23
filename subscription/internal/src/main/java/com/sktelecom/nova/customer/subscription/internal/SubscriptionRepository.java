@@ -1,4 +1,4 @@
-package com.sktelecom.nova.subscription.internal;
+package com.sktelecom.nova.customer.subscription.internal;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -2,12 +2,13 @@
         displayName = "customer-subscription-internal",
         allowedDependencies = {
                 "customer.profile.api",
-                "customer.event.api",
+                "customer.subscription.api",
+                "customer.subscription.event",
                 "product.pricing.api",
 
                 //"common.notification::event"
         }
 )
-package com.sktelecom.nova.subscription.internal;
+package com.sktelecom.nova.customer.subscription.internal;
 
 import org.springframework.modulith.ApplicationModule;

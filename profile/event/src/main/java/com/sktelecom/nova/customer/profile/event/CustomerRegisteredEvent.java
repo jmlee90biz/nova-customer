@@ -1,4 +1,4 @@
-package com.sktelecom.nova.modular.monolith.customer.profile.event;
+package com.sktelecom.nova.customer.profile.event;
 
 import java.util.UUID;
 

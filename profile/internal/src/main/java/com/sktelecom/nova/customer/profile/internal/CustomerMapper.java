@@ -1,6 +1,6 @@
-package com.sktelecom.nova.modular.monolith.customer.profile.internal;
+package com.sktelecom.nova.customer.profile.internal;
 
-import com.sktelecom.nova.modular.monolith.customer.profile.api.CustomerDto;
+import com.sktelecom.nova.customer.profile.api.CustomerDto;
 
 class CustomerMapper {
     static CustomerDto toCustomerDto(Customer customer) {
